@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/merlmartin/.nuget/packages/</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/merlmartin/.nuget/packages/</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.10.1</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="/Users/merlmartin/.nuget/packages/" />
+  </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.visualstudio.props" Condition="Exists('$(NuGetPackageRoot)xunit.runner.visualstudio/2.2.0/build/netcoreapp1.0/xunit.runner.visualstudio.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk/15.3.0-preview-20170628-02/build/netcoreapp1.0/Microsoft.Net.Test.Sdk.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk/15.3.0-preview-20170628-02/build/netcoreapp1.0/Microsoft.Net.Test.Sdk.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">/Users/merlmartin/.nuget/packages/newtonsoft.json/9.0.1</PkgNewtonsoft_Json>
+    <Pkgxunit_runner_visualstudio Condition=" '$(Pkgxunit_runner_visualstudio)' == '' ">/Users/merlmartin/.nuget/packages/xunit.runner.visualstudio/2.2.0</Pkgxunit_runner_visualstudio>
+    <Pkgxunit Condition=" '$(Pkgxunit)' == '' ">/Users/merlmartin/.nuget/packages/xunit/2.2.0</Pkgxunit>
+    <PkgMicrosoft_NET_Test_Sdk Condition=" '$(PkgMicrosoft_NET_Test_Sdk)' == '' ">/Users/merlmartin/.nuget/packages/microsoft.net.test.sdk/15.3.0-preview-20170628-02</PkgMicrosoft_NET_Test_Sdk>
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">/Users/merlmartin/.nuget/packages/fsharp.core/8.0.400</PkgFSharp_Core>
+  </PropertyGroup>
+</Project>

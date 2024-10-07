@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSTTT", "FSTTT\FSTTT.fsproj", "{C0F04856-64F5-4A45-B76B-732BB16EDAA3}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSTTTTest", "FSTTTTest\FSTTTTest.fsproj", "{6420D535-F2AB-4B79-AFB8-7972AC93F35E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0F04856-64F5-4A45-B76B-732BB16EDAA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F04856-64F5-4A45-B76B-732BB16EDAA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F04856-64F5-4A45-B76B-732BB16EDAA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F04856-64F5-4A45-B76B-732BB16EDAA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6420D535-F2AB-4B79-AFB8-7972AC93F35E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6420D535-F2AB-4B79-AFB8-7972AC93F35E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6420D535-F2AB-4B79-AFB8-7972AC93F35E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6420D535-F2AB-4B79-AFB8-7972AC93F35E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

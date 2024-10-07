@@ -1,0 +1,40 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AFSharp_002ECore_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2024_002E2_003Fresharper_002Dhost_003FDecompilerCache_003Fmetadata_003F2db72a1c078951c650bee8ec9a8293c2328b20_003F49_003F437a05cf_003FFSharp_002ECore_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AFsUnit_002EXunit_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2024_002E2_003Fresharper_002Dhost_003FDecompilerCache_003Fmetadata_003F22c1297bfc78e94b4d166ee90d15f141c600_003F60_003Fcd74da39_003FFsUnit_002EXunit_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
+  &lt;Assembly Path="/Users/merlmartin/.nuget/packages/fsharp.core/8.0.400/lib/netstandard2.1/FSharp.Core.dll" /&gt;
+  &lt;Assembly Path="/Users/merlmartin/.nuget/packages/fsunit.xunit/4.1.0/lib/netstandard2.0/FsUnit.Xunit.dll" /&gt;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=24f249a7_002Ded2f_002D4846_002D8655_002Db856f4ea3e8e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="displays the default board #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::C0F04856-64F5-4A45-B76B-732BB16EDAA3::net8.0::FSTTT.board_test.displays the default board&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=29467ca4_002D73bd_002D422b_002Daa91_002De6049936ffba/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="displays the default board" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::C0F04856-64F5-4A45-B76B-732BB16EDAA3::net8.0::FSTTT.board_test.displays the default board&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=57931e4e_002Dee8d_002D4a39_002Db3bf_002Dd02d1fdcd982/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="board_test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::C0F04856-64F5-4A45-B76B-732BB16EDAA3::net8.0::FSTTT.board_test&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=82e3b028_002D80ea_002D4851_002Db8ca_002D18fff6e803ba/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="displays all tokens" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::C0F04856-64F5-4A45-B76B-732BB16EDAA3::net8.0::FSTTT.board_test.displays all tokens&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9f02d787_002D195c_002D40c9_002Da848_002D542f12604e70/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="displays the default board #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::C0F04856-64F5-4A45-B76B-732BB16EDAA3::net8.0::FSTTT.board_test.displays the default board&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d627098c_002Df1f8_002D4141_002Db96b_002D9637cb2d680f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="displays the default board #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::C0F04856-64F5-4A45-B76B-732BB16EDAA3::net8.0::FSTTT.board_test.displays the default board&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=db281c46_002D919b_002D47b5_002Db885_002Da08b0966fb92/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="board_test #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
