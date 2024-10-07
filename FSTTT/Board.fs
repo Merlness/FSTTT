@@ -1,15 +1,33 @@
 module FSTTT.Board
 
+type PlayerType = 
+    | Human
+    | AI
+
+type Game = {
+    Player1: PlayerType
+    Player2: PlayerType
+    Token1: string
+    Token2: string
+}
+
+
+let zero = 0
+let one = 1
+
+
 let Organize (grid: string[]) : string =
     let formatRow row =
         row |> Array.map string |> String.concat " | "
 
     grid |> Array.chunkBySize 3 |> Array.map formatRow |> String.concat "\n"
 
-let size (grid: string[]) = int (sqrt (float (Array.length grid)))
+let updateBoard (grid: string[]) (position: int) (player: string) : string[] =
+    let updatedGrid = Array.copy grid
+    updatedGrid.[position - 1] <- player
+    updatedGrid
 
-let zero = 0
-let one = 1
+let size (grid: string[]) = int (sqrt (float (Array.length grid)))
 
 let rows gridSize =
     [ for i in zero .. gridSize - one->
@@ -42,3 +60,13 @@ let checkWinner (grid: string[]) (token: string) =
     
 let isFull (grid: string[]) : bool =
     Array.forall (fun x -> x = "X" || x = "O") grid
+    
+let availableMoves (grid: string[]) : int list =
+    let mutable moves = []
+    for i = 0 to Array.length grid - 1 do
+        if grid.[i] <> "X" && grid.[i] <> "O" then
+            moves <- (i + 1) :: moves
+    List.rev moves
+    
+let isGameOver (grid: string[]) (token1: string) (token2: string) : bool =
+    checkWinner grid token1 || checkWinner grid token2 || isFull grid

@@ -3,6 +3,7 @@ module FSTTT.UITest
 open Xunit
 open System.IO
 open FSTTT.UI
+open FSTTT.Board
 
 [<Fact>]
 let ``updateBoard places X at position 5`` () =
@@ -53,10 +54,10 @@ let ``isValidMove is false for out of range position`` () =
 let ``getMove makes a move`` () =
     let grid = [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |]
     let expected = 5
-    let ref = ref [expected]
+    let ref = ref [string expected ]
     let output = new StringWriter()
     
-    let got = getMove (Test (output, ref)) grid
+    let got = getHumanMove (Test (output, ref)) grid
 
     Assert.Equal(expected, got)
     
@@ -68,10 +69,10 @@ let ``getMove doesn't allow 5 but allows 9`` () =
     let board = [| "1"; "2"; "3"; "4"; "X"; "6"; "7"; "8"; "9" |]
     let output = new StringWriter()
     
-    let ref = ref [5 ; 9]
+    let ref = ref ["5" ; "9"]
     
     let behavior = Test (output, ref)
-    let move = getMove behavior board
+    let move = getHumanMove behavior board
     
     Assert.Equal(9, move) 
     
@@ -83,9 +84,9 @@ let ``getMove doesn't allow 5 but allows 9`` () =
 let ``getMove asks again for out-of-range move`` () =
     let grid = [| "1"; "2"; "3"; "4"; "X"; "6"; "7"; "8"; "9" |]
     let output = new StringWriter()
-    let simulatedMoves = ref [10; 7]  
+    let simulatedMoves = ref ["10"; "7"]  
 
-    let got = getMove (Test (output, simulatedMoves)) grid
+    let got = getHumanMove (Test (output, simulatedMoves)) grid
     
     Assert.Equal(7, got) 
     
@@ -110,3 +111,57 @@ let ``endgameResult returns tie message when tied`` () =
     let grid = [| "X"; "O"; "X"; "O"; "O"; "X"; "X"; "X"; "O" |]
     let result = endgameResult grid "X" "O"
     Assert.Equal("Womp, it's a tie!", result)
+    
+[<Fact>]
+let ``askPlayerToken prompts for token selection`` () =
+    let output = new StringWriter()
+    let simulatedMoves = ref ["X"]  
+    let behavior = Test (output, simulatedMoves)
+
+    let token = askPlayerToken behavior
+
+    Assert.Equal("X", token)
+    let result = output.ToString()
+    Assert.Contains("Choose a token for Player 1 (X or O):", result)
+
+[<Fact>]
+let ``askPlayerToken re-prompts until valid token is chosen`` () =
+    let output = new StringWriter()
+    let movesRef = ref ["Z"; "P"; "X"]  
+    let behavior = Test(output, movesRef)
+    
+    let token = askPlayerToken behavior
+
+    Assert.Equal("X", token)
+
+    let result = output.ToString()
+    Assert.Contains("Choose a token for Player 1 (X or O):", result)
+    Assert.Contains("Choose a token for Player 1 (X or O):", result) 
+    Assert.Contains("Choose a token for Player 1 (X or O):", result)
+    
+[<Fact>]
+let ``askPlayerKind prompts for player type`` () =
+    let output = new StringWriter()
+    let simulatedMoves = ref ["human"] 
+    let behavior = Test (output, simulatedMoves)
+
+    let playerType = askPlayerKind behavior "Player 1"
+
+    Assert.Equal(Human, playerType)
+    let result = output.ToString()
+    Assert.Contains("Is Player 1 a Human or AI?", result)
+    
+[<Fact>]
+let ``askPlayerKind re-prompts until valid player type is chosen`` () =
+    let output = new StringWriter()
+    let movesRef = ref ["alien"; "cat"; "human"]  
+    let behavior = Test(output, movesRef)
+    
+    let playerType = askPlayerKind behavior "Player 1"
+
+    Assert.Equal(Human, playerType)
+
+    let result = output.ToString()
+    Assert.Contains("Is Player 1 a Human or AI?", result)
+    Assert.Contains("Is Player 1 a Human or AI?", result)  
+    Assert.Contains("Is Player 1 a Human or AI?", result)

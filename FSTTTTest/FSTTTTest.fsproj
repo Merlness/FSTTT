@@ -12,6 +12,8 @@
         <Compile Include="BoardTest.fs" />
         <Compile Include="MainTest.fs" />
         <Compile Include="UITest.fs" />
+        <Compile Include="MiniMaxTest.fs" />
+        <Compile Include="GameHelperTest.fs" />
     </ItemGroup>
 
     <ItemGroup>

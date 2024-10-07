@@ -5,18 +5,13 @@ open FSTTT.Board
 
 type Display =
     | Console
-    | Test of StringWriter * int list ref
+    | Test of StringWriter * string list ref
 
 
 let display (behavior: Display) (message: string) =
     match behavior with
     | Console -> printfn "%s" message
     | Test(writer, _) -> writer.WriteLine(message)
-
-let updateBoard (grid: string[]) (position: int) (player: string) : string[] =
-    let updatedGrid = Array.copy grid
-    updatedGrid.[position - 1] <- player
-    updatedGrid
 
 let isAvailable (board: string[]) (pos: int) : bool =
     board.[pos - 1] <> "X" && board.[pos - 1] <> "O"
@@ -37,14 +32,16 @@ let readInput (behavior: Display) : int option =
         | [] -> None
         | move :: remainingMoves ->
             simulatedMovesRef := remainingMoves
-            Some move
-
+            match System.Int32.TryParse(move) with  
+            | true, parsedMove -> Some parsedMove  
+            | false, _ -> None
+            
 let validateMove (grid: string[]) (move: int option) : bool =
     match move with
     | Some pos when isValidMove grid pos -> true
     | _ -> false
 
-let rec getMove (behavior: Display) (grid: string[]) =
+let rec getHumanMove (behavior: Display) (grid: string[]) =
     display behavior "Select a position (1-9):"
     let move = readInput behavior
 
@@ -54,7 +51,7 @@ let rec getMove (behavior: Display) (grid: string[]) =
         | None -> failwith "Please try again"
     else
         display behavior "Please try again."
-        getMove behavior grid      
+        getHumanMove behavior grid      
         
 let endgameResult (grid: string[]) (token1: string) (token2: string) : string =
     if checkWinner grid token1 then
@@ -64,3 +61,41 @@ let endgameResult (grid: string[]) (token1: string) (token2: string) : string =
     else
         "Womp, it's a tie!"
 
+let handleSimulatedInput (simulatedRef: string list ref) (behavior: Display) (processInput: string -> 'T) (fallback: unit -> 'T) : 'T =
+    match !simulatedRef with
+    | input :: remainingInputs ->
+        simulatedRef := remainingInputs
+        processInput input
+    | [] -> fallback ()  
+
+
+let handleInput (behavior: Display) (processInput: string -> 'T) (fallback: unit -> 'T) : 'T =
+    match behavior with
+    | Console ->
+        let input = System.Console.ReadLine() : string
+        processInput input
+    | Test (_, simulatedRef) ->
+        handleSimulatedInput simulatedRef behavior processInput fallback
+
+
+let rec askPlayerKind (behavior: Display) (playerNumber: string) : PlayerType =
+    display behavior (sprintf "Is %s a Human or AI? (Type 'human' or 'ai')" playerNumber)
+
+    let processInput (input: string) =
+        match input.ToLower() with
+        | "human" -> Human
+        | "ai" -> AI
+        | _ -> askPlayerKind behavior playerNumber
+
+    handleInput behavior processInput (fun () -> askPlayerKind behavior playerNumber)
+
+
+let rec askPlayerToken (behavior: Display) : string =
+    display behavior "Choose a token for Player 1 (X or O):"
+
+    let processInput (input: string) =
+        match input.ToUpper() with
+        | "X" | "O" as token -> token
+        | _ -> askPlayerToken behavior
+
+    handleInput behavior processInput (fun () -> askPlayerToken behavior)
