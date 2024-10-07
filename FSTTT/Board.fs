@@ -1,20 +1,17 @@
 module FSTTT.Board
 
-type PlayerType = 
+type PlayerType =
     | Human
     | AI
 
-type Game = {
-    Player1: PlayerType
-    Player2: PlayerType
-    Token1: string
-    Token2: string
-}
-
+type Game =
+    { Player1: PlayerType
+      Player2: PlayerType
+      Token1: string
+      Token2: string }
 
 let zero = 0
 let one = 1
-
 
 let Organize (grid: string[]) : string =
     let formatRow row =
@@ -24,18 +21,16 @@ let Organize (grid: string[]) : string =
 
 let updateBoard (grid: string[]) (position: int) (player: string) : string[] =
     let updatedGrid = Array.copy grid
-    updatedGrid.[position - 1] <- player
+    updatedGrid.[position - one] <- player
     updatedGrid
 
 let size (grid: string[]) = int (sqrt (float (Array.length grid)))
 
 let rows gridSize =
-    [ for i in zero .. gridSize - one->
-        [ for j in zero .. gridSize - one -> i * gridSize + j ] ]
+    [ for i in zero .. gridSize - one -> [ for j in zero .. gridSize - one -> i * gridSize + j ] ]
 
-let columns gridSize = 
-    [ for i in zero .. gridSize - one ->
-        [ for j in zero .. gridSize - one -> i + j * gridSize ] ]
+let columns gridSize =
+    [ for i in zero .. gridSize - one -> [ for j in zero .. gridSize - one -> i + j * gridSize ] ]
 
 let backDiagonal gridSize =
     [ for i in zero .. gridSize - one -> i * (gridSize + one) ]
@@ -54,19 +49,22 @@ let checkLines (grid: string[]) (token: string) (lines: int list list) =
 
 let checkWinner (grid: string[]) (token: string) =
     let gridSize = size grid
-    checkLines grid token (rows gridSize) ||
-    checkLines grid token (columns gridSize) ||
-    checkLines grid token (diagonals gridSize)
-    
+
+    checkLines grid token (rows gridSize)
+    || checkLines grid token (columns gridSize)
+    || checkLines grid token (diagonals gridSize)
+
 let isFull (grid: string[]) : bool =
     Array.forall (fun x -> x = "X" || x = "O") grid
-    
+
 let availableMoves (grid: string[]) : int list =
     let mutable moves = []
+
     for i = 0 to Array.length grid - 1 do
         if grid.[i] <> "X" && grid.[i] <> "O" then
             moves <- (i + 1) :: moves
+
     List.rev moves
-    
+
 let isGameOver (grid: string[]) (token1: string) (token2: string) : bool =
     checkWinner grid token1 || checkWinner grid token2 || isFull grid

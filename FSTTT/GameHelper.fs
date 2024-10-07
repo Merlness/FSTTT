@@ -4,16 +4,13 @@ open FSTTT.UI
 open FSTTT.Board
 open FSTTT.MiniMax
 
-let countAvailableMoves (grid: string[]) : int =
-    availableMoves grid |> List.length 
+let two = 2
 
-let isPlayerOnesTurn (grid: string[]) : bool =
-    countAvailableMoves grid % 2 <> 0 
+let countAvailableMoves (grid: string[]) : int = availableMoves grid |> List.length
+let isPlayerOnesTurn (grid: string[]) : bool = countAvailableMoves grid % two <> zero
 
 let rec getMove (behavior: Display) (grid: string[]) (game: Game) : int =
-    let currentPlayer = 
-        if isPlayerOnesTurn grid then game.Player1 
-        else game.Player2
+    let currentPlayer = if isPlayerOnesTurn grid then game.Player1 else game.Player2
 
     match currentPlayer with
     | Human -> getHumanMove behavior grid

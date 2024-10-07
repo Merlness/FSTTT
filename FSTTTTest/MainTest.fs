@@ -8,26 +8,23 @@ open FSTTT.Board
 
 let initialGrid = [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |]
 
-let initialGame = {
-                    Player1 = Human
-                    Player2 = Human
-                    Token1 = "X"
-                    Token2 = "O" }
-
+let initialGame =
+    { Player1 = Human
+      Player2 = Human
+      Token1 = "X"
+      Token2 = "O" }
 
 [<Fact>]
 let ``setupGame displays greeting and initial board`` () =
     let output = new StringWriter()
-    let simulatedMoves = ref ["X"; "human"; "human"]  
-    let behavior = Test (output, simulatedMoves)
+    let simulatedMoves = ref [ "X"; "human"; "human" ]
+    let behavior = Test(output, simulatedMoves)
 
-    setupGame behavior initialGrid |> ignore  
+    setupGame behavior initialGrid |> ignore
 
     let result = output.ToString()
     Assert.Contains("Welcome to Tic Tac Toe!", result)
     Assert.Contains("1 | 2 | 3\n4 | 5 | 6\n7 | 8 | 9", result)
-
-
 
 [<Fact>]
 let ``playGame prints the board after a valid move`` () =
@@ -105,42 +102,23 @@ let ``playGame ends when O wins`` () =
     let result = output.ToString()
 
     Assert.Contains("O is the winner!", result)
-    
-// [<Fact>]
-// let ``setupGame initializes with correct player types and tokens`` () =
-//     let output = new StringWriter()
-//     let simulatedMoves = ref []  
-//     let behavior = Test (output, simulatedMoves)
-//
-//     let game = setupGame behavior initialGrid
-//
-//     Assert.Equal(Human, game.Player1)
-//     Assert.Equal(Human, game.Player2)
-//     Assert.Equal("X", game.Token1)
-//     Assert.Equal("O", game.Token2)
-//
-//     let result = output.ToString()
-//     Assert.Contains("Choose a token for Player 1", result)
-//     Assert.Contains("Is Player 1 a Human or AI?", result)
-//     Assert.Contains("Is Player 2 a Human or AI?", result)
-
 
 [<Fact>]
 let ``setupGame asks Player 1 to choose a token`` () =
     let output = new StringWriter()
-    let simulatedMoves = ref ["X"; "human"; "human"]  
-    let behavior = Test (output, simulatedMoves)
+    let simulatedMoves = ref [ "X"; "human"; "human" ]
+    let behavior = Test(output, simulatedMoves)
 
-    setupGame behavior initialGrid |> ignore  
+    setupGame behavior initialGrid |> ignore
 
     let result = output.ToString()
     Assert.Contains("Choose a token for Player 1 (X or O):", result)
-    
+
 [<Fact>]
 let ``setupGame initializes players and tokens correctly`` () =
     let output = new StringWriter()
-    let simulatedMoves = ref ["X"; "human"; "human"]  
-    let behavior = Test (output, simulatedMoves)
+    let simulatedMoves = ref [ "X"; "human"; "human" ]
+    let behavior = Test(output, simulatedMoves)
 
     let game = setupGame behavior initialGrid
 
@@ -148,4 +126,3 @@ let ``setupGame initializes players and tokens correctly`` () =
     Assert.Equal(Human, game.Player2)
     Assert.Equal("X", game.Token1)
     Assert.Equal("O", game.Token2)
-

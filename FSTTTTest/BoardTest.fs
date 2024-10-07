@@ -4,6 +4,12 @@ open Xunit
 open FSTTT.Board
 
 [<Fact>]
+let ``zero should be 0`` () = Assert.Equal(0, zero)
+
+[<Fact>]
+let ``one should be 1`` () = Assert.Equal(1, one)
+
+[<Fact>]
 let ``displays the default board`` () =
     let grid = [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |]
     let got = Organize(grid)
@@ -23,8 +29,6 @@ let ``displays all tokens`` () =
     let got = Organize(grid)
     let want = "X | O | X\nX | O | X\nO | X | O"
     Assert.Equal(want, got)
-
-open Xunit
 
 [<Fact>]
 let ``checks X wins top row`` () =
@@ -121,19 +125,19 @@ let ``diagonals function doesn't produce wrong diagonal indices`` () =
     let wrongDiagonals: int list list = [ [ 0; 3; 6 ]; [ 2; 5; 8 ] ]
     let result: int list list = diagonals gridSize
     Assert.NotEqual<int list list>(wrongDiagonals, result)
-    
-    
+
+
 [<Fact>]
 let ``availableMoves returns all positions when the board is empty`` () =
     let grid = [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |]
-    let expectedMoves = [ 1; 2; 3; 4; 5; 6; 7; 8; 9 ]  
+    let expectedMoves = [ 1; 2; 3; 4; 5; 6; 7; 8; 9 ]
     let result = availableMoves grid
     Assert.Equal<int list>(expectedMoves, result)
 
 [<Fact>]
 let ``availableMoves returns no positions when the board is full`` () =
     let grid = [| "X"; "O"; "X"; "O"; "X"; "O"; "X"; "O"; "X" |]
-    let expectedMoves = []  
+    let expectedMoves = []
     let result = availableMoves grid
     Assert.Equal<int list>(expectedMoves, result)
 
@@ -142,5 +146,4 @@ let ``availableMoves returns correct available positions`` () =
     let grid = [| "1"; "X"; "3"; "O"; "5"; "X"; "7"; "8"; "O" |]
     let expectedMoves = [ 1; 3; 5; 7; 8 ]
     let result = availableMoves grid
-    Assert.Equal< int list>(expectedMoves, result)
-
+    Assert.Equal<int list>(expectedMoves, result)
