@@ -6,8 +6,6 @@ open FSTTT.Main
 open FSTTT.UI
 open FSTTT.Board
 
-let initialGrid = [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |]
-
 let initialGame =
     { Player1 = Human
       Player2 = Human
@@ -126,3 +124,16 @@ let ``setupGame initializes players and tokens correctly`` () =
     Assert.Equal(Human, game.Player2)
     Assert.Equal("X", game.Token1)
     Assert.Equal("O", game.Token2)
+
+
+[<Fact>]
+let ``runGame plays a game`` () =
+    let output = new StringWriter()
+    let simulatedInputs = ref ["X"; "human"; "human"; "1"; "2"; "3"; "4"; "5"; "6"; "7"]
+    let behavior = Test(output, simulatedInputs)
+
+    runGame behavior
+
+    let result = output.ToString()
+    Assert.Contains("Welcome to Tic Tac Toe!", result)
+    Assert.Contains("X is the winner!", result)

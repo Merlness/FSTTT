@@ -11,8 +11,7 @@ let ``one should be 1`` () = Assert.Equal(1, one)
 
 [<Fact>]
 let ``displays the default board`` () =
-    let grid = [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |]
-    let got = Organize(grid)
+    let got = Organize(initialGrid)
     let want = "1 | 2 | 3\n4 | 5 | 6\n7 | 8 | 9"
     Assert.Equal(want, got)
 
@@ -129,9 +128,8 @@ let ``diagonals function doesn't produce wrong diagonal indices`` () =
 
 [<Fact>]
 let ``availableMoves returns all positions when the board is empty`` () =
-    let grid = [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |]
     let expectedMoves = [ 1; 2; 3; 4; 5; 6; 7; 8; 9 ]
-    let result = availableMoves grid
+    let result = availableMoves initialGrid
     Assert.Equal<int list>(expectedMoves, result)
 
 [<Fact>]

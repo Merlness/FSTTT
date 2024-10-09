@@ -13,6 +13,8 @@ type Game =
 let zero = 0
 let one = 1
 
+let initialGrid = [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |]
+
 let Organize (grid: string[]) : string =
     let formatRow row =
         row |> Array.map string |> String.concat " | "

@@ -5,6 +5,8 @@
   &lt;Assembly Path="/Users/merlmartin/.nuget/packages/fsharp.core/8.0.400/lib/netstandard2.1/FSharp.Core.dll" /&gt;
   &lt;Assembly Path="/Users/merlmartin/.nuget/packages/fsunit.xunit/4.1.0/lib/netstandard2.0/FsUnit.Xunit.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/Users/merlmartin/Library/Caches/JetBrains/Rider2024.2/resharper-host/temp/Rider/vAny/CoverageData/_FSTTT.859379084/Snapshot/snapshot.utdcvr</s:String>
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=24f249a7_002Ded2f_002D4846_002D8655_002Db856f4ea3e8e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="displays the default board #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::C0F04856-64F5-4A45-B76B-732BB16EDAA3::net8.0::FSTTT.board_test.displays the default board&lt;/TestId&gt;

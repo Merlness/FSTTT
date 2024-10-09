@@ -4,6 +4,7 @@ open FSTTT.UI
 open FSTTT.Board
 open FSTTT.GameHelper
 
+
 let playTurn (behavior: Display) (grid: string[]) (game: Game) : string[] =
     let currentToken = if isPlayerOnesTurn grid then game.Token1 else game.Token2
     let move = getMove behavior grid game
@@ -35,11 +36,11 @@ let setupGame (behavior: Display) (grid: string[]) : Game =
       Token1 = token1
       Token2 = token2 }
 
+let runGame (behavior: Display) =
+    let game = setupGame behavior initialGrid
+    playGame behavior initialGrid game
+
 [<EntryPoint>]
 let main argv =
-    let initialGrid = [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |]
-
-    let game = setupGame Console initialGrid
-    playGame Console initialGrid game
-
+    runGame Console
     0

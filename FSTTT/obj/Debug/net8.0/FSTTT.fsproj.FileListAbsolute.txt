@@ -110,3 +110,4 @@
 /Users/merlmartin/RiderProjects/FSTTT/FSTTT/bin/Debug/net8.0/Microsoft.DotNet.PlatformAbstractions.dll
 /Users/merlmartin/RiderProjects/FSTTT/FSTTT/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
 /Users/merlmartin/RiderProjects/FSTTT/FSTTT/bin/Debug/net8.0/System.Xml.XPath.XmlDocument.dll
+/Users/merlmartin/RiderProjects/FSTTT/FSTTT/obj/Debug/net8.0/FSTTT.sourcelink.json

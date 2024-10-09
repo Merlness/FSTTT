@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("FSTTTTest")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43d94149ce848ddad84846bb2046d34261ecd7bf")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("FSTTTTest")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("FSTTTTest")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]

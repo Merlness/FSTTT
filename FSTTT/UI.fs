@@ -48,7 +48,7 @@ let rec getHumanMove (behavior: Display) (grid: string[]) =
     if validateMove grid move then
         match move with
         | Some pos -> pos
-        | None -> failwith "Please try again"
+        // | None -> failwith "Please try again"
     else
         display behavior "Please try again."
         getHumanMove behavior grid
