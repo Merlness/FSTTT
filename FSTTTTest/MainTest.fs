@@ -125,11 +125,12 @@ let ``setupGame initializes players and tokens correctly`` () =
     Assert.Equal("X", game.Token1)
     Assert.Equal("O", game.Token2)
 
-
 [<Fact>]
 let ``runGame plays a game`` () =
     let output = new StringWriter()
-    let simulatedInputs = ref ["X"; "human"; "human"; "1"; "2"; "3"; "4"; "5"; "6"; "7"]
+    let simulatedInputs =
+        ref [ "X"; "human"; "human"; "1"; "2"; "3"; "4"; "5"; "6"; "7" ]
+    
     let behavior = Test(output, simulatedInputs)
 
     runGame behavior

@@ -169,44 +169,42 @@ let ``askPlayerKind re-prompts until valid player type is chosen`` () =
     Assert.Contains("Is Player 1 a Human or AI?", result)
     Assert.Contains("Is Player 1 a Human or AI?", result)
 
-
 [<Fact>]
 let ``readInput reads valid integer from console`` () =
     let input = new StringReader("5\n")
-    Console.SetIn(input)  
-    
+    Console.SetIn(input)
+
     let result = readInput Console
-    
+
     Assert.Equal(Some 5, result)
 
 [<Fact>]
 let ``readInput returns None for invalid console input`` () =
     let input = new StringReader("\n")
-    Console.SetIn(input)  
-    
+    Console.SetIn(input)
+
     let result = readInput Console
-    
+
     Assert.Equal(None, result)
 
 [<Fact>]
 let ``readInput returns None for test mode input`` () =
-    let simulatedMoves = ref ["invalid"]  
-    let behavior = Test (new StringWriter(), simulatedMoves)
-    
-    let result = readInput behavior
-    
-    Assert.Equal(None, result)
+    let simulatedMoves = ref [ "invalid" ]
+    let behavior = Test(new StringWriter(), simulatedMoves)
 
+    let result = readInput behavior
+
+    Assert.Equal(None, result)
 
 [<Fact>]
 let ``readInput returns None when ref is empty`` () =
-    let simulatedMoves = ref []  
-    let behavior = Test (new StringWriter(), simulatedMoves)
+    let simulatedMoves = ref []
+    let behavior = Test(new StringWriter(), simulatedMoves)
 
     let result = readInput behavior
 
     Assert.Equal(None, result)
-    
+
 [<Fact>]
 let ``handleInput processes input from Console`` () =
     let simulatedConsoleInput = "5"
@@ -218,18 +216,16 @@ let ``handleInput processes input from Console`` () =
         | "5" -> 5
         | _ -> failwith "Unexpected input"
 
-    let fallback () = 0 
+    let fallback () = 0
     let result = handleInput Console processInput fallback
 
     Assert.Equal(5, result)
-
 
 [<Fact>]
 let ``handleSimulatedInput triggers fallback when no inputs remain`` () =
     let simulatedMoves = ref []
 
-    let processInput (input: string) =
-        failwith ""
+    let processInput (input: string) = failwith ""
 
     let fallback () = -1
 

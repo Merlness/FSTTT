@@ -125,7 +125,6 @@ let ``diagonals function doesn't produce wrong diagonal indices`` () =
     let result: int list list = diagonals gridSize
     Assert.NotEqual<int list list>(wrongDiagonals, result)
 
-
 [<Fact>]
 let ``availableMoves returns all positions when the board is empty`` () =
     let expectedMoves = [ 1; 2; 3; 4; 5; 6; 7; 8; 9 ]

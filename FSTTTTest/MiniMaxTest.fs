@@ -31,7 +31,7 @@ let rec collectAIResults
 and playGameComputerSecond (board: string[]) (maximizingToken: string) (minimizingToken: string) : string list =
     let availableMoves = availableMoves board
     let mutable results = []
-    
+
     for move in availableMoves do
         results <- collectMoveResults results move board maximizingToken minimizingToken
 
@@ -123,7 +123,6 @@ let ``maximize finds first move for O`` () =
     let _, result = maximize grid "O" "X" 1
     Assert.Contains(result, [ 1; 3; 7; 9 ])
 
-            
 [<Fact>]
 let ``minimax AI going first never loses`` () =
     let results =
@@ -131,13 +130,9 @@ let ``minimax AI going first never loses`` () =
 
     Assert.DoesNotContain("loss", results)
 
-
 [<Fact>]
 let ``minimax AI going second never loses`` () =
     let results =
         playGameComputerSecond [| "1"; "2"; "3"; "4"; "5"; "6"; "7"; "8"; "9" |] "X" "O"
 
     Assert.DoesNotContain("loss", results)
-
-
-

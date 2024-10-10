@@ -51,7 +51,6 @@ let ``isPlayerOnesTurn returns true after 2 moves`` () =
     let result = isPlayerOnesTurn grid
     Assert.True(result)
 
-
 [<Fact>]
 let ``getMove for human player returns valid move`` () =
     let output = new StringWriter()
@@ -144,4 +143,3 @@ let ``getMove for AI selects best move`` () =
     Assert.InRange(move, 1, 9)
     let result = output.ToString()
     Assert.Contains("AI's move", result)
-
