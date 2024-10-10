@@ -2,7 +2,7 @@
 
 Hi! This is my simple Tic Tac Toe game in F#.
 
-To get started, let’s install [.NET SDK.](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) 
+To get started, let’s install [.NET SDK.](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) 
 
 Make sure you have the necessary tools and plugins for your IDE.
 
