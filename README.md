@@ -8,7 +8,8 @@ Make sure you have the necessary tools and plugins for your IDE.
 
 If you have a Mac [this could be helpful.](https://fsharp.org/use/mac/)
 
-You can use VS Studio, I used rider from JetBrains. 
+You can use VS Studio, I used Rider from JetBrains. 
+This does not work with IntelliJ!
 
 
 ### Run the Game
