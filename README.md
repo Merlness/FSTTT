@@ -23,7 +23,8 @@ Don't forget to have a good time, since you won't be able to beat my AI!
 
 ### Running Tests
 
-If you want to run the tests to make sure everything is working properly, stay in the same FSTTT/FSTTT directory and run the tests with:
+If you want to run the tests to make sure everything is working properly, 
+go to the FSTTT/FSTTTTEST directory and run the tests with:
 
      dotnet test
 
